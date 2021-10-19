@@ -15,7 +15,6 @@ public class CustomerAccountServiceImpl implements CustomerAccountService{
         int customerBalance = customer.getBalance();
         int reducedBalance = customerBalance - amount;
         if (customerBalance > 1000 && reducedBalance > 1000){
-            System.out.println(customer.getBalance()+" "+reducedBalance);
             customer.setBalance(reducedBalance);
             updateDatabase(customer,null,reducedBalance,0);
             System.out.println("Amount Withdrawn Succesfully");
@@ -32,6 +31,7 @@ public class CustomerAccountServiceImpl implements CustomerAccountService{
         int newAmount = oldAmount + addAmount;
         customer.setBalance(newAmount);
         updateDatabase(customer,null,newAmount,0);
+        System.out.println("Amount Deposited");
     }
 
     @Override
