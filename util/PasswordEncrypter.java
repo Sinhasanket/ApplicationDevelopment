@@ -1,6 +1,6 @@
 package Coding.util;
 
-public class PasswordEncypter {
+public class PasswordEncrypter {
     public static String encrypt(String password){
         StringBuilder encryptedPassword = new StringBuilder();
         for (char curr : password.toCharArray()){

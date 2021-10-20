@@ -1,7 +1,7 @@
 package Coding.services;
 
 import Coding.model.Customer;
-import Coding.util.PasswordEncypter;
+import Coding.util.PasswordEncrypter;
 
 import java.io.BufferedWriter;
 import java.io.FileWriter;
@@ -16,7 +16,7 @@ public class CustomerServiceImpl implements CustomerService{
         StringBuilder newUserDetails = new StringBuilder();
 
         Customer newCustomer = new Customer(latestCustomerId,latestAccountNumber);
-        PasswordEncypter encrypter = new PasswordEncypter();
+        PasswordEncrypter encrypter = new PasswordEncrypter();
         String encryptedPassword = encrypter.encrypt(newUser[1]);
 
         newUserDetails.append(newCustomer.getCustId()  ).append(" ");
@@ -36,7 +36,7 @@ public class CustomerServiceImpl implements CustomerService{
     @Override
     public Customer authenticateUser(HashMap<Integer, Customer> allCustomers, int customerId, String password) {
         if (allCustomers.containsKey(customerId)){
-            PasswordEncypter encrypter = new PasswordEncypter();
+            PasswordEncrypter encrypter = new PasswordEncrypter();
             String encrypt = encrypter.encrypt(password);
             Customer databaseUser = allCustomers.get(customerId);
             String storedPassword = databaseUser.getEncryptedPassword();
