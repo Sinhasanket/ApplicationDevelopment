@@ -6,11 +6,15 @@ import java.util.Map;
 
 public class Printer {
     public static void print(Map<Integer,Customer> allCustomers){
+        StringBuilder printUser = new StringBuilder();
         for (Map.Entry customer : allCustomers.entrySet()){
             int customerId = (int) customer.getKey();
             Customer printCustomer = (Customer) customer.getValue();
-            System.out.println(customerId+" "+printCustomer.getAccountNumber()+" " +
-                    ""+printCustomer.getBalance()+" "+printCustomer.getName()+" "+printCustomer.getEncryptedPassword());
+            printUser.append(customerId).append(" ");
+            printUser.append(printCustomer.getAccountNumber()).append(" ");
+            printUser.append(printCustomer.getName()).append(" ");
+            printUser.append(printCustomer.getEncryptedPassword()).append("\n");
         }
+        System.out.println(printUser.toString());
     }
 }

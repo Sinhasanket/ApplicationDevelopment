@@ -9,9 +9,9 @@ public class PasswordEncrypter {
                     curr = 'a';
                     encryptedPassword.append(curr+"");
                 }else {
-                   int ascii = curr;
-                   ascii++;
-                   char newChar = (char) (ascii);
+                   int increaseCurrent = curr;
+                   increaseCurrent++;
+                   char newChar = (char) (increaseCurrent);
                    encryptedPassword.append(newChar+"");
                 }
             }else if (curr >= 'A' && curr <= 'Z'){
@@ -19,9 +19,9 @@ public class PasswordEncrypter {
                     curr = 'A';
                     encryptedPassword.append(curr+"");
                 }else {
-                    int ascii = curr;
-                    ascii++;
-                    char newChar = (char) (ascii);
+                    int increaseCurrent = curr;
+                    increaseCurrent++;
+                    char newChar = (char) (increaseCurrent);
                     encryptedPassword.append(newChar+"");
                 }
             }else {
@@ -39,6 +39,3 @@ public class PasswordEncrypter {
         return encryptedPassword.toString();
     }
 }
-
-//sanket
-//tbolfu

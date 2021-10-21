@@ -5,7 +5,10 @@ import Coding.util.PasswordEncrypter;
 
 import java.io.BufferedWriter;
 import java.io.FileWriter;
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
+import java.util.List;
 
 public class CustomerServiceImpl implements CustomerService{
     private static int latestCustomerId = -1;
@@ -47,5 +50,21 @@ public class CustomerServiceImpl implements CustomerService{
             return null;
         }
         return null;
+    }
+
+    @Override
+    public void showTopNCustomer(int n, HashMap<Integer, Customer> allCustomers) {
+        List<Customer> getAllCustomer = new ArrayList<>(allCustomers.values());
+        Collections.sort(getAllCustomer);
+        StringBuilder printUser = new StringBuilder();
+        for(int i = 0;i<n;i++){
+            Customer currentCustomer = getAllCustomer.get(i);
+            printUser.append("Serial Number : ").append((i+1)+" ");
+            printUser.append(currentCustomer.getCustId()).append(" ");
+            printUser.append(currentCustomer.getAccountNumber()).append(" ");
+            printUser.append(currentCustomer.getName()).append(" ");
+            printUser.append(currentCustomer.getBalance()).append("\n");
+        }
+        System.out.println(printUser.toString());
     }
 }

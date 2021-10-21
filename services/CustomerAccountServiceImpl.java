@@ -49,7 +49,7 @@ public class CustomerAccountServiceImpl implements CustomerAccountService{
                 int newBalance = newAmount + transferAmount;
                 beneficiaryCustomer.setBalance(newBalance);
                 updateDatabase(customer,beneficiaryCustomer,oldAmount,newBalance);
-                System.out.println("Money Transfered");
+                System.out.println("Money Transferred");
             }else {
                 System.out.println("Insufficient Balance");
             }

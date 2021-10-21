@@ -15,9 +15,7 @@ public class Initializer {
 
         while((currentLine = reader.readLine()) != null){
             String currArray[] = currentLine.split(" ");
-            if (currArray[0].equalsIgnoreCase("Custid")){
-                continue;
-            }
+
             customer = new Customer();
             int custId = Integer.parseInt(currArray[0]);
             int accountNumber = Integer.parseInt(currArray[1]);

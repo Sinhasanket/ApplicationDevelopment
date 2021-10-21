@@ -18,10 +18,10 @@ public class Main {
         Initializer initializer = new Initializer();
         HashMap<Integer,Customer> allCustomers = initializer.initialize();
 
-        String addMore = "y";
+        String quit = "y";
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
-        while (addMore.equalsIgnoreCase("y")){
-            System.out.println("Select Option \n (1) Add User \n (2) Authenticate User (3) User Account");
+        while (quit.equalsIgnoreCase("y")){
+            System.out.println("Select Option \n (1) Add User \n (2) Authenticate User \n (3) User Account \n (4) Top N Customer");
             int option = Integer.parseInt(reader.readLine());
             switch (option){
                 case 1:
@@ -38,10 +38,16 @@ public class Main {
                 case 3:
                     userAccount(allCustomers,reader);
                     break;
+                case 4:
+                    System.out.println("Enter a number to get top N Customer");
+                    int n = Integer.parseInt(reader.readLine());
+                    customerService = new CustomerServiceImpl();
+                    customerService.showTopNCustomer(n,allCustomers);
+                    break;
             }
 
             System.out.print("Want to Quit? (y/n)");
-            addMore = reader.readLine();
+            quit = reader.readLine();
         }
         allCustomers = initializer.initialize();
         Printer printer = new Printer();

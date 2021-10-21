@@ -1,6 +1,6 @@
 package Coding.model;
 
-public class Customer {
+public class Customer implements Comparable<Customer>{
     private int custId;
     private int accountNumber;
     private String name;
@@ -54,5 +54,10 @@ public class Customer {
 
     public void setEncryptedPassword(String encryptedPassword) {
         this.encryptedPassword = encryptedPassword;
+    }
+
+    @Override
+    public int compareTo(Customer o) {
+        return o.balance - this.balance;
     }
 }
